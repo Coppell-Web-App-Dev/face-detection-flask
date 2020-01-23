@@ -7,9 +7,9 @@
     <title>Face Detection</title>
 </head>
 <body>
-    <h1>Sankalp Shubham</h1>
-    <form action="/post_image" method="post">
-        <input type="file" name="image-file" id="image-id" accept=".jpg, .png, .jpeg">
+    <h1>Submit pic</h1>
+    <form action="/post_image" method="post" enctype="multipart/form-data">
+        <input type="file" name="image-file" id="image-file" accept=".jpg, .png, .jpeg">
         <button type="submit">Submit Button</button>
     </form>
 </body>

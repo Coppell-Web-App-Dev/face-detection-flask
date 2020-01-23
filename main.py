@@ -26,10 +26,15 @@ def post_image():
         filestr = image_file.read()
         npimg = np.fromstring(filestr, np.uint8)
         image = cv2.imdecode(npimg, cv2.IMREAD_COLOR)
+        # cv2.imshow('main', image)
+        # cv2.waitKey(0)
         image = detect(image)
         retval, buffer = cv2.imencode('.png', image)
         data_uri = base64.b64encode(buffer).decode('ascii')
-        return render_template('display.html', image=image)
+        context = {
+            "image": data_uri
+        }
+        return render_template('display.html', context=context)
 
 if __name__ == "__main__":
     app.run(debug=True)
